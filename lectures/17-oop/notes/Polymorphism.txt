@@ -1,0 +1,65 @@
+Types of Polymorphism - 
+1. compile Time / Static Polymorphism - Compile-time polymorphism occurs when the compiler determines which method to invoke based on the method signature at compile time. It is resolved during the compilation phase, and the specific method implementation is determined statically based on the reference type. This type of polymorphism is achieved through method overloading and occurs with static (non-virtual) methods, static variables, and overloaded constructors.
+
+Example of compile-time polymorphism through method overloading:
+
+Method Overloading: Method overloading allows multiple methods with the same name but different parameter lists to coexist in a class. The compiler determines which overloaded method to invoke based on the number, type, and order of the arguments passed during the method call. The decision on which method to execute is made at compile time.
+
+class MathUtils {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MathUtils math = new MathUtils();
+        int sum1 = math.add(2, 3); // Compile-time polymorphism
+        double sum2 = math.add(2.5, 3.7); // Compile-time polymorphism
+    }
+}
+
+
+achived via Method overloading (same name but types, arguments and return types  differ)
+  eg - multiple constructors
+
+
+
+2. Runtime / Dynamic Polymorphism - achived via Method Overriding 
+
+Runtime polymorphism occurs when the specific method implementation to be executed is determined at runtime based on the actual type of the object. It allows a subclass object to be treated as an instance of its superclass, and the appropriate overridden method is invoked based on the actual object type. This type of polymorphism is achieved through method overriding and applies to instance methods.
+
+Method Overriding: Method overriding enables a subclass to provide its own implementation of a method that is already defined in its superclass. The decision on which overridden method to execute is made at runtime based on the actual type of the object being referred to, not the reference type.
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Cat extends Animal {
+    public void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Cat(); // Upcasting
+        animal.makeSound(); // Runtime polymorphism
+    }
+}
+
+
+
+
+
+
+
+
+
+Note Very Important - What an object can access is told by refrence and whuch one it is able to access is told by type of object - kunal oops3 1:33
